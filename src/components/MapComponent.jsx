@@ -9,18 +9,23 @@ import {
 import Cluster from "./Cluster";
 import countiesData from "../data/counties.json";
 
-
 const MapComponent = ({ dataCollection }) => {
+  const [bounds, setBounds] = React.useState([
+    [40.47999136, 12.6569755388],
+    [46.5037509222, 20.3904757016],
+  ]);
+
   return (
     <div className="map-container">
       <MapContainer
         center={[44.4737849, 16.4688717]}
         minZoom={7}
         maxZoom={12}
-        zoom={7}
+        zoom={8}
         scrollWheelZoom={false}
         className="map"
-        dragging={false}
+        /* dragging={false} */
+        maxBounds={bounds}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
